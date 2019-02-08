@@ -1,0 +1,120 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage{times}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{arydshln}
+\usepackage{geometry}
+\usepackage{balance}
+\usepackage{enumitem}
+% \usepackage{hyperref}
+
+% Our inputs/packages
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains,shapes.geometric,shapes.arrows,calc}
+
+\input{styles/annotations}
+% End our inputs/packages
+
+% do not change these values
+\baselineskip 12pt
+\textheight 9in
+\textwidth 6.5in
+\oddsidemargin 0in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+% end of do not change these values
+
+% Custom commands
+% NOTE: when using the bifrost command and you want a space after the word
+% (i.e., Bifrost in), you must use {\bifrost} or it won't put a space
+\newcommand{\dinv}{Dinv}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\lstdefinelanguage{P4}{
+   keywords={header_type,valid,control,action,modify_field,if,then,else,else if,or,and,not,while,do,apply,table},
+   keywordstyle=\color{blue}\bfseries,
+   identifierstyle=\color{black},
+   sensitive=false,
+   commentstyle=\color{mygreen}\ttfamily,
+   comment=[l]{--},%
+}
+
+\lstset{
+  language=P4,
+  extendedchars=true,
+  basicstyle=\scriptsize\ttfamily,
+  showstringspaces=false,
+  showspaces=false,
+  numbers=left,
+  numberstyle=\tiny\color{darkgray},
+  numbersep=2pt,
+  tabsize=1,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b,
+  numberblanklines=false,
+  escapeinside=\[\]
+}
+
+\def\outline{0} % 0 = full paper, 1 = outline
+\def\thesis{0} % 0 = socc paper, 1 = thesis
+
+\begin{document}
+
+\title{Title}
+\author{
+        author 1,
+        author 2
+        \\
+\small {\em  
+		Dept. of Computer Science, University of British Columbia 
+        } \\ [2mm]
+\small Submission Type: Research
+}
+\date{}
+\maketitle
+
+
+\if\outline1
+	\input{outline.tex}
+\else
+	\input{abstract.tex}
+
+    \input{acks.tex}
+	\input{intro.tex}
+	\input{motivation.tex}
+	\input{background.tex}
+	\input{implementation.tex}
+	\input{evaluation.tex}
+	\input{discussion.tex}
+	\input{related.tex}
+	\input{conclusion.tex}
+
+
+	\clearpage
+	\balance
+	\bibliographystyle{abbrv}
+	\bibliography{bib/paper}
+\fi
+
+\end{document}
+
+
